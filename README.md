@@ -107,6 +107,11 @@ adb install -r -g apk/KimMinyoung_Chagok_release.apk
 - 충전은 Virtual Console 의 Battery SOC 를 5%p 이상 올리면 된다 (에뮬레이터는 전기차라 연료 잔량은 없다).
 - 동승석 착석은 에뮬레이터에서 거꾸로 보인다. SDK 는 원시 값 1 을 "앉음"으로 바꾸는데 Virtual Console 은 "비었음"을 1 로 보낸다.
   지난 방문 메모를 끝까지 들으려면 Virtual Console 에서 동승석 셋을 "Occupied"로 둔다 (`setup` 이 그렇게 맞춘다).
+- 말로 넣기(주유·충전 금액, 방문 목적, Gleo)는 Mac 마이크를 에뮬레이터에 이어서 한다. 부팅할 때마다 풀리니 다시 켠다.
+
+```bash
+adb emu avd hostmicon
+```
 
 ## 시연 샘플 (디버그 빌드만)
 
@@ -148,7 +153,7 @@ adb shell am broadcast --user 10 -a kr.chagok.demo.FAIL_WRITES --ez on false -n 
 ## Gleo 음성 명령
 
 앱을 설치하면 Gleo 가 `assets/schema.json` 을 읽어 함수 3개(분류·방문 목적·사람)를 등록한다.
-에뮬레이터에서는 마이크 대신 시험 신호로 문장을 넣는다.
+Mac 마이크를 켰으면(`adb emu avd hostmicon`) Gleo 를 불러 말하면 된다. 마이크 없이 시험할 때는 시험 신호로 문장을 넣는다.
 
 ```bash
 adb shell am broadcast --user 10 -a ai.umos.intent.action.ASR --es ASR "'차곡에 이번 운행 개인 용무로 기록해줘'"
@@ -323,7 +328,7 @@ app/src/test/java/kr/chagok/
 ## 아직 안 된 것
 
 - 내보내기의 실제 QR·엑셀 생성 (지금은 자리 그림이고 화면에도 그렇게 밝힌다). 주유·충전 금액도 엑셀 유류비에 넣는다
-- 주유·충전 금액을 숫자판으로 넣기 (지금은 말로만). 에뮬레이터에는 마이크가 없어 금액 말하기는 단위 테스트로만 확인했다
+- 주유·충전 금액을 숫자판으로 넣기 (지금은 말로만)
 - 홈 탭 배지에 주유·충전 금액 할 일 수 더하기 (지금은 분류 대기·미지정만 센다)
 - 사업연도 시작 월 고르기, 백업·복원
 - 차종을 차대번호로 추정하기 (지금은 직접 넣는다)
