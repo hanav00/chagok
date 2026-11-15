@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 화면은 Compose 가 그린다. 창 바탕만 앱 색으로 맞춰 처음 뜰 때 흰 화면이 번쩍이지 않게 한다 -->
+    <style name="Theme.Chagok" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:statusBarColor">@color/window_background</item>
+        <item name="android:navigationBarColor">@color/window_background</item>
+    </style>
+</resources>

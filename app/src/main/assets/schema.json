@@ -1,0 +1,67 @@
+{
+  "packageName": "kr.chagok",
+  "appDescription": "Keeps the business vehicle logbook by recording every trip from the car odometer.",
+  "version": "0.1.0",
+  "actionCalls": [
+    {
+      "type": "function",
+      "function": {
+        "component": "service",
+        "name": "SET_TRIP_CATEGORY",
+        "description": "Marks a trip in the vehicle logbook as business use, commute between home and office, or personal use.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string",
+              "description": "Usage type of the trip.",
+              "enum": ["BUSINESS", "COMMUTE", "PERSONAL"]
+            },
+            "trip": {
+              "type": "string",
+              "description": "Which trip to change: the trip being driven now, the trip that just ended, or the next departure.",
+              "enum": ["CURRENT", "LAST", "NEXT"]
+            }
+          },
+          "required": ["category"]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "component": "service",
+        "name": "ADD_TRIP_NOTE",
+        "description": "Saves the purpose of the visit as a note on the trip that just ended in the vehicle logbook.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "note": {
+              "type": "string",
+              "description": "Short visit purpose in the user's own words."
+            }
+          },
+          "required": ["note"]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "component": "service",
+        "name": "SET_TRIP_USER",
+        "description": "Records in the vehicle logbook which registered person is driving or using the shared car on the trip.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the person driving or using the car."
+            }
+          },
+          "required": ["name"]
+        }
+      }
+    }
+  ]
+}

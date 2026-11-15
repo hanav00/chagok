@@ -1,0 +1,548 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 5,
+    "identityHash": "126ff1dc1d021b4bd5fca8b1fce9882b",
+    "entities": [
+      {
+        "tableName": "trips",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `uid` TEXT NOT NULL, `date` INTEGER NOT NULL, `personId` INTEGER, `startKm` REAL NOT NULL, `endKm` REAL NOT NULL, `startedAt` INTEGER, `endedAt` INTEGER, `category` TEXT, `reason` TEXT, `note` TEXT NOT NULL, `isGap` INTEGER NOT NULL, `origin_name` TEXT, `origin_address` TEXT, `origin_poiId` TEXT, `origin_poiSubId` TEXT, `origin_latitude` REAL, `origin_longitude` REAL, `destination_name` TEXT, `destination_address` TEXT, `destination_poiId` TEXT, `destination_poiSubId` TEXT, `destination_latitude` REAL, `destination_longitude` REAL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uid",
+            "columnName": "uid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "personId",
+            "columnName": "personId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "startKm",
+            "columnName": "startKm",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endKm",
+            "columnName": "endKm",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startedAt",
+            "columnName": "startedAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "endedAt",
+            "columnName": "endedAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "reason",
+            "columnName": "reason",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "note",
+            "columnName": "note",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isGap",
+            "columnName": "isGap",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "origin.name",
+            "columnName": "origin_name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "origin.address",
+            "columnName": "origin_address",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "origin.poiId",
+            "columnName": "origin_poiId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "origin.poiSubId",
+            "columnName": "origin_poiSubId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "origin.latitude",
+            "columnName": "origin_latitude",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "origin.longitude",
+            "columnName": "origin_longitude",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "destination.name",
+            "columnName": "destination_name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "destination.address",
+            "columnName": "destination_address",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "destination.poiId",
+            "columnName": "destination_poiId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "destination.poiSubId",
+            "columnName": "destination_poiSubId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "destination.latitude",
+            "columnName": "destination_latitude",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "destination.longitude",
+            "columnName": "destination_longitude",
+            "affinity": "REAL"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_trips_uid",
+            "unique": true,
+            "columnNames": [
+              "uid"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_trips_uid` ON `${TABLE_NAME}` (`uid`)"
+          }
+        ]
+      },
+      {
+        "tableName": "active_trip",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`slot` INTEGER NOT NULL, `date` INTEGER NOT NULL, `startKm` REAL NOT NULL, `startedAt` INTEGER NOT NULL, `lastKm` REAL NOT NULL, `lastAt` INTEGER NOT NULL, `category` TEXT NOT NULL, `isCategoryChanged` INTEGER NOT NULL, `personId` INTEGER, `isEditedWhileDriving` INTEGER NOT NULL DEFAULT 0, `origin_name` TEXT, `origin_address` TEXT, `origin_poiId` TEXT, `origin_poiSubId` TEXT, `origin_latitude` REAL, `origin_longitude` REAL, `destination_name` TEXT, `destination_address` TEXT, `destination_poiId` TEXT, `destination_poiSubId` TEXT, `destination_latitude` REAL, `destination_longitude` REAL, PRIMARY KEY(`slot`))",
+        "fields": [
+          {
+            "fieldPath": "slot",
+            "columnName": "slot",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startKm",
+            "columnName": "startKm",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startedAt",
+            "columnName": "startedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastKm",
+            "columnName": "lastKm",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastAt",
+            "columnName": "lastAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isCategoryChanged",
+            "columnName": "isCategoryChanged",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "personId",
+            "columnName": "personId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "isEditedWhileDriving",
+            "columnName": "isEditedWhileDriving",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "origin.name",
+            "columnName": "origin_name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "origin.address",
+            "columnName": "origin_address",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "origin.poiId",
+            "columnName": "origin_poiId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "origin.poiSubId",
+            "columnName": "origin_poiSubId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "origin.latitude",
+            "columnName": "origin_latitude",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "origin.longitude",
+            "columnName": "origin_longitude",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "destination.name",
+            "columnName": "destination_name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "destination.address",
+            "columnName": "destination_address",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "destination.poiId",
+            "columnName": "destination_poiId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "destination.poiSubId",
+            "columnName": "destination_poiSubId",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "destination.latitude",
+            "columnName": "destination_latitude",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "destination.longitude",
+            "columnName": "destination_longitude",
+            "affinity": "REAL"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "slot"
+          ]
+        }
+      },
+      {
+        "tableName": "people",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `uid` TEXT NOT NULL, `name` TEXT NOT NULL, `dept` TEXT NOT NULL, `initial` TEXT NOT NULL, `order` INTEGER NOT NULL, `isHidden` INTEGER NOT NULL DEFAULT 0)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uid",
+            "columnName": "uid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dept",
+            "columnName": "dept",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "initial",
+            "columnName": "initial",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "order",
+            "columnName": "order",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isHidden",
+            "columnName": "isHidden",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_people_uid",
+            "unique": true,
+            "columnNames": [
+              "uid"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_people_uid` ON `${TABLE_NAME}` (`uid`)"
+          }
+        ]
+      },
+      {
+        "tableName": "admin_edits",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `uid` TEXT NOT NULL, `tripId` INTEGER NOT NULL, `tripDate` INTEGER NOT NULL, `field` TEXT NOT NULL, `fromValue` TEXT, `toValue` TEXT, `editedAt` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uid",
+            "columnName": "uid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tripId",
+            "columnName": "tripId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tripDate",
+            "columnName": "tripDate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "field",
+            "columnName": "field",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fromValue",
+            "columnName": "fromValue",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "toValue",
+            "columnName": "toValue",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "editedAt",
+            "columnName": "editedAt",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_admin_edits_uid",
+            "unique": true,
+            "columnNames": [
+              "uid"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_admin_edits_uid` ON `${TABLE_NAME}` (`uid`)"
+          }
+        ]
+      },
+      {
+        "tableName": "refuels",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `uid` TEXT NOT NULL, `date` INTEGER NOT NULL, `time` INTEGER NOT NULL, `odometerKm` REAL NOT NULL, `kind` TEXT NOT NULL, `fromPercent` INTEGER NOT NULL, `toPercent` INTEGER NOT NULL, `amountWon` INTEGER, `isAmountSkipped` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "uid",
+            "columnName": "uid",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "time",
+            "columnName": "time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "odometerKm",
+            "columnName": "odometerKm",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kind",
+            "columnName": "kind",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fromPercent",
+            "columnName": "fromPercent",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "toPercent",
+            "columnName": "toPercent",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "amountWon",
+            "columnName": "amountWon",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "isAmountSkipped",
+            "columnName": "isAmountSkipped",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_refuels_uid",
+            "unique": true,
+            "columnNames": [
+              "uid"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_refuels_uid` ON `${TABLE_NAME}` (`uid`)"
+          }
+        ]
+      },
+      {
+        "tableName": "energy_marks",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`kind` TEXT NOT NULL, `percent` INTEGER NOT NULL, `odometerKm` REAL NOT NULL, `isFilling` INTEGER NOT NULL, PRIMARY KEY(`kind`))",
+        "fields": [
+          {
+            "fieldPath": "kind",
+            "columnName": "kind",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "percent",
+            "columnName": "percent",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "odometerKm",
+            "columnName": "odometerKm",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isFilling",
+            "columnName": "isFilling",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "kind"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '126ff1dc1d021b4bd5fca8b1fce9882b')"
+    ]
+  }
+}

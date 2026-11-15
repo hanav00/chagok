@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 108dp 캔버스 가운데(안전 영역 지름 66dp 안)에 블록 탑을 둔다 -->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_app_blocks"
+    android:insetLeft="31dp"
+    android:insetTop="32dp"
+    android:insetRight="31dp"
+    android:insetBottom="31dp" />

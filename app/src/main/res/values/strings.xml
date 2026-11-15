@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  차곡 화면 문구. 문구는 여기만 고친다.
+  이름은 화면_자리 순서로 짓는다. %1$s 같은 자리는 코드에서 채운다.
+-->
+<resources>
+    <string name="app_name">차곡</string>
+
+    <!-- 분류 이름 -->
+    <string name="category_commute">출퇴근</string>
+    <string name="category_business">일반 업무</string>
+    <string name="category_personal">개인</string>
+    <string name="category_commute_short">출퇴근</string>
+    <string name="category_business_short">업무</string>
+    <string name="category_personal_short">개인</string>
+    <string name="category_pending">분류 대기</string>
+
+    <!-- 분류 근거 (운행 상세 "분류 근거" 칸). 출퇴근이면 뒤에 reason_commute_suffix 를 붙인다 -->
+    <string name="reason_default_business">기본값 업무</string>
+    <string name="reason_default_personal">기본값 개인</string>
+    <string name="reason_pre_pick">출발 전 선택</string>
+    <string name="reason_user_edit">사용자 수정</string>
+    <string name="reason_user_pick">사용자 선택</string>
+    <string name="reason_admin_edit">관리자 수정</string>
+    <string name="reason_commute_suffix">%1$s · 집↔회사</string>
+
+    <!-- 운행 이름 (기록부 비고·방금 운행 제목) -->
+    <string name="trip_gap">기록 안 된 주행</string>
+    <string name="trip_personal">개인 사용</string>
+    <string name="trip_unknown_place">장소 기록 안 됨</string>
+    <string name="trip_no_navi">내비 미사용 · %1$s</string>
+    <string name="trip_no_navi_bare">내비 미사용</string>
+
+    <!-- 음성 안내 (시동 · 출퇴근 경로 · 도착) -->
+    <string name="voice_ignition">%1$s 기록됩니다.</string>
+    <string name="voice_commute_route">출퇴근으로 기록됩니다.</string>
+    <string name="voice_arrived">%1$s 도착, %2$s 기록했어요.</string>
+    <string name="voice_driven">%1$s킬로미터 운행, %2$s 기록했어요.</string>
+    <string name="voice_as_business">업무로</string>
+    <string name="voice_as_commute">출퇴근으로</string>
+    <string name="voice_as_personal">개인으로</string>
+
+    <!-- 다시 가는 곳: 내비 목적지를 찍으면 지난 방문 메모. 동승자가 있으면 메모는 읽지 않는다 -->
+    <string name="voice_visit_note">%1$s, %2$s. 지난번 메모, %3$s.</string>
+    <string name="voice_visit_again">%1$s, %2$s.</string>
+    <string name="voice_since_today">오늘 또 가요</string>
+    <string name="voice_since_days">%1$d일 만이에요</string>
+    <string name="voice_since_weeks">%1$d주 만이에요</string>
+    <string name="voice_since_months">%1$d개월 만이에요</string>
+
+    <!-- 주유·충전: 잔량이 오르면 한 번 알리고, 금액은 홈에서 받는다 -->
+    <string name="voice_refueled">주유를 기록했어요. 금액은 화면에서 말해 주세요.</string>
+    <string name="voice_charged">충전을 기록했어요. 금액은 화면에서 말해 주세요.</string>
+
+    <!-- 기록 서비스 상시 알림 -->
+    <string name="recorder_channel">운행 기록</string>
+    <string name="recorder_notification">시동 중 운행을 기록하고 있어요</string>
+
+    <!-- 앱 껍데기: 헤더·탭·주행 중 화면 -->
+    <string name="header_recording">기록 중</string>
+    <string name="header_admin_lock">관리자 잠그기</string>
+    <string name="tab_home">홈</string>
+    <string name="tab_table">기록부</string>
+    <string name="tab_simulator">절세 계산</string>
+    <string name="tab_settings">설정</string>
+    <string name="tab_badge_description">확인할 일 %1$d건</string>
+    <string name="drive_business">업무로 기록되고 있어요</string>
+    <string name="drive_personal">개인 운행, 거리만 기록하고 있어요</string>
+    <string name="drive_commute">출퇴근으로 기록되고 있어요</string>
+
+    <!-- 공통 -->
+    <string name="close">닫기</string>
+    <string name="km_value">%1$skm</string>
+    <string name="km_value_spaced">%1$s km</string>
+    <string name="km_unit">km</string>
+    <string name="arrow">→</string>
+    <string name="count_value">%1$d건</string>
+    <string name="decrease">%1$s 줄이기</string>
+    <string name="increase">%1$s 늘리기</string>
+    <string name="switch_on">켜짐</string>
+    <string name="switch_off">꺼짐</string>
+    <string name="voice_not_heard">못 알아들었어요. 다시 눌러 말해 주세요</string>
+    <string name="voice_not_heard_name">이름을 못 알아들었어요. 이름 없이 넣었어요</string>
+    <string name="voice_not_allowed">이 운행은 그렇게 바꿀 수 없어요</string>
+    <string name="voice_person_locked">이미 사람이 정해진 운행이에요. 관리자만 바꿀 수 있어요</string>
+    <string name="voice_person_ambiguous">이름이 같은 사람이 여럿이에요. 이름을 끝까지 말해 주세요</string>
+    <string name="error_save">저장하지 못했어요. 다시 해 주세요</string>
+    <!-- 알림 줄에 "다시 하기" 버튼이 붙을 때 -->
+    <string name="error_save_retryable">저장하지 못했어요</string>
+    <string name="notice_retry">다시 하기</string>
+
+    <!-- 홈: 방금 운행 -->
+    <string name="recent_first_visit">처음 간 곳</string>
+    <string name="recent_odometer">계기판</string>
+    <string name="recent_today_count">오늘 %1$d번째</string>
+    <string name="recent_personal_sub_undo">카드를 닫으면 장소를 지워요</string>
+    <string name="recent_closed">닫았어요</string>
+    <string name="recent_reopen">다시 보기</string>
+    <string name="recent_mic">방문 목적 말하기</string>
+    <string name="recent_listening">듣고 있어요</string>
+    <string name="recent_note_saved">"%1$s" 비고에 저장됨</string>
+    <string name="recent_to_personal">개인 운행이었어요</string>
+    <string name="recent_to_business">이건 업무였어요</string>
+    <string name="recent_who">누가 탔나요?</string>
+    <string name="recent_hint_work">그대로 두면 업무로 저장돼요</string>
+    <string name="recent_hint_commute">그대로 두면 출퇴근으로 저장돼요</string>
+    <string name="recent_hint_off">업무였다면 여기서 바꿔요</string>
+
+    <!-- 홈: 분류 대기 · 누가 탔는지 골라 주세요 -->
+    <string name="unassigned_title">누가 탔는지 골라 주세요</string>
+    <string name="home_gap_title">기록 안 된 주행</string>
+    <string name="home_gap_scene_sub">앱이 꺼진 사이 달린 거리</string>
+    <string name="home_gap_done">계기판이 다시 이어졌어요</string>
+    <string name="refuel_title">주유·충전 금액</string>
+    <string name="refuel_fuel">주유</string>
+    <string name="refuel_charge">충전</string>
+    <string name="refuel_percent">%1$d%% → %2$d%%</string>
+    <string name="refuel_speak">금액 말하기</string>
+    <string name="refuel_skip">모름</string>
+    <string name="refuel_amount_saved">%1$s원 남겼어요</string>
+    <string name="unassigned_past_locked">지난 미지정 %1$d건은 관리자가 골라요</string>
+
+    <!-- 홈: 다음 출발 · 누가 타나요 · 오늘 요약 -->
+    <string name="next_label">다음 출발</string>
+    <string name="next_business">업무</string>
+    <string name="next_personal">개인</string>
+    <string name="next_commute">출퇴근</string>
+    <string name="next_default_note">시동마다 기본값(%1$s)으로 시작해요</string>
+    <string name="next_changed_note">다음 출발만 %1$s</string>
+    <string name="next_who">누가 타나요?</string>
+    <string name="next_person_last">지난번</string>
+    <string name="next_who_none">안 고르고 출발하면 \'사용자 미지정\'으로 기록하고 도착 후에 골라요</string>
+    <string name="today_business">오늘 업무</string>
+    <string name="today_commute">출퇴근</string>
+    <string name="today_personal">개인</string>
+
+    <!-- 홈: 요약 카드 -->
+    <string name="home_ratio_title">%1$d년 업무사용비율</string>
+    <string name="home_ratio_empty">첫 운행이 끝나면 계산해요</string>
+    <string name="home_today_title">오늘</string>
+    <string name="home_detail">자세히</string>
+    <string name="home_detail_title">올해와 이번 달</string>
+    <string name="home_month_empty">이번 달 운행이 끝날 때마다 여기에 블록이 쌓여요</string>
+    <string name="home_business_km">업무용</string>
+    <string name="home_total_km">전체</string>
+    <string name="home_month_title">%1$s 운행</string>
+    <string name="home_integrity_gap">기록 안 된 주행 %1$skm</string>
+    <string name="home_integrity_ok">계기판 %1$skm까지 기록됨</string>
+
+    <!-- 운행기록부 서식 칸 (국세청 별지 서식) -->
+    <string name="form_fiscal_year">사업연도</string>
+    <string name="form_fiscal_range">%1$s ~ %2$s</string>
+    <string name="form_company">법인명</string>
+    <string name="form_biz_no">사업자등록번호</string>
+    <string name="form_model">①차종</string>
+    <string name="form_plate">②자동차등록번호</string>
+    <string name="form_date">③사용일자</string>
+    <string name="form_user_dept">④사용자\n부서</string>
+    <string name="form_user_name">④사용자\n성명</string>
+    <string name="form_start_km">⑤주행 전\n계기판(km)</string>
+    <string name="form_end_km">⑥주행 후\n계기판(km)</string>
+    <string name="form_km">⑦주행\n거리</string>
+    <string name="form_business_group">업무용 사용거리(km)</string>
+    <string name="form_commute">⑧출·퇴근</string>
+    <string name="form_business">⑨일반 업무</string>
+    <string name="form_remark">⑩비고</string>
+    <string name="form_month_total">월 합계</string>
+    <string name="form_year_total">⑪사업연도 총주행거리</string>
+    <string name="form_year_business">⑫업무용 사용거리</string>
+    <string name="form_year_ratio">⑬업무사용비율</string>
+    <string name="form_source">국세청고시 제2025-8호 별지 서식 항목 기준</string>
+    <string name="form_missing">입력 필요</string>
+
+    <!-- 기록부 -->
+    <string name="table_prev_month">이전 달</string>
+    <string name="table_next_month">다음 달</string>
+    <string name="table_wide">서식 전체 보기</string>
+    <string name="table_narrow">핵심 칸만</string>
+    <string name="table_empty_month">이 달 운행이 아직 없어요</string>
+    <string name="table_empty_today">오늘 운행이 아직 없어요</string>
+    <string name="table_pending_km">분류 대기 %1$skm</string>
+    <string name="table_gap_user_check">④사용자 미지정</string>
+    <string name="table_unassigned">미지정</string>
+    <string name="table_form_vehicle">%1$s %2$s</string>
+    <string name="table_open_trip">운행 상세 열기</string>
+    <string name="table_hint">줄을 누르면 분류를 고칠 수 있어요</string>
+    <string name="table_scroll_end">맨 아래 최근 운행으로</string>
+    <string name="table_overview_month">%1$d월 운행</string>
+    <string name="table_overview_today">오늘 운행</string>
+    <string name="table_overview_line">%1$d건 · 올해 업무사용비율 %2$s</string>
+    <string name="table_export_caption">폰으로 찍으면 엑셀을 받아요</string>
+    <string name="table_by_category">분류별</string>
+    <string name="table_recent">최근 운행</string>
+    <string name="table_show_form">기록부 전체 보기</string>
+    <string name="table_form_back">한눈에</string>
+
+    <!-- 운행 상세 시트 -->
+    <string name="sheet_title">%1$s 운행</string>
+    <string name="sheet_category">분류</string>
+    <string name="sheet_work_note">개인으로 바꾸면 이 운행의 장소를 지워요</string>
+    <string name="sheet_when">날짜·시각</string>
+    <string name="sheet_user">④사용자</string>
+    <string name="sheet_user_none">미지정</string>
+    <string name="sheet_user_pick">누가 탔나요?</string>
+    <string name="sheet_odometer">⑤→⑥ 계기판</string>
+    <string name="sheet_odometer_value">%1$s → %2$s km</string>
+    <string name="sheet_distance">⑦주행거리</string>
+    <string name="sheet_place">출발 → 도착</string>
+    <string name="sheet_place_value">%1$s → %2$s</string>
+    <string name="sheet_place_none">없음</string>
+    <string name="sheet_place_undo">닫으면 장소를 지워요</string>
+    <string name="sheet_place_gap">앱이 기록하지 못한 구간</string>
+    <string name="sheet_note">방문 목적</string>
+    <string name="sheet_reason">분류 근거</string>
+    <string name="sheet_empty_value">-</string>
+    <string name="sheet_time_range">%1$s ~ %2$s</string>
+
+    <!-- 기록부 > 내보내기 -->
+    <string name="export_open">내보내기</string>
+    <string name="export_title">내보내기</string>
+    <string name="export_book_title">운행기록부</string>
+    <string name="export_book_month">%1$d월</string>
+    <string name="export_back">기록부</string>
+    <string name="export_mode_month">이 달 기록부</string>
+    <string name="export_mode_year">사업연도 합계 (명세서용)</string>
+    <string name="export_month_title">폰 카메라로 찍으면\n%1$s 운행기록부 엑셀을 받아요</string>
+    <string name="export_qr_label">엑셀 받기 QR</string>
+    <string name="export_qr_placeholder">시연용 그림이에요. 엑셀 받기는 준비 중이에요</string>
+    <string name="export_month_trips">운행</string>
+    <string name="export_month_total">총주행</string>
+    <string name="export_month_business">업무용</string>
+    <string name="export_month_pending">분류 대기 %1$d건이 있어요</string>
+    <string name="export_month_unassigned">④사용자가 비어 있는 운행 %1$d건</string>
+    <string name="export_year_title">업무용승용차 관련비용 명세서\n%1$d 사업연도 입력값</string>
+    <string name="export_year_plate">①차량번호</string>
+    <string name="export_year_model">②차종</string>
+    <string name="export_year_logged">⑥운행기록 작성</string>
+    <string name="export_year_logged_value">여</string>
+    <string name="export_year_total">⑦총주행거리 (기록부 ⑪)</string>
+    <string name="export_year_business">⑧업무용 사용거리 (⑫)</string>
+    <string name="export_year_ratio">⑨업무사용비율 (⑬)</string>
+    <string name="export_year_breakdown">⑧ = 출·퇴근 %1$skm + 일반 업무 %2$skm</string>
+    <string name="export_year_pending">분류 대기 %1$skm 빠짐</string>
+    <string name="export_year_handoff">신고 때 세무대리인에게 넘겨요</string>
+    <string name="export_fix_pending">지금 분류하기</string>
+    <string name="export_fix_unassigned">지금 고르기</string>
+    <string name="export_month_unnamed">이름 없는 사람: %1$s</string>
+    <string name="export_fix_unnamed">이름 넣기</string>
+    <string name="export_vehicle_missing">빠진 값: %1$s</string>
+    <string name="export_fix_vehicle">빠진 값 채우기</string>
+
+    <!-- 절세 계산 -->
+    <string name="sim_vehicle">차량</string>
+    <string name="sim_hero_label">기록 덕분에 올해 줄어드는 세금</string>
+    <string name="sim_bonus_title">소득세가 붙는 비용</string>
+    <string name="sim_bonus_line">업무사용비율 %1$s → %2$s, 인정받는 비용이 늘어 상여로 넘어가는 몫이 줄어요</string>
+    <string name="sim_detail">계산 자세히</string>
+    <string name="sim_detail_title">어떻게 계산했나요</string>
+    <string name="sim_fact_corp">법인세</string>
+    <string name="sim_fact_income">차량 사용자 소득세</string>
+    <string name="sim_fact_total">올해 관련비용</string>
+    <string name="sim_cost_title">한 해 차량 비용</string>
+    <string name="sim_ownership_lease">리스</string>
+    <string name="sim_ownership_rent">장기렌트</string>
+    <string name="sim_ownership_buy">구입</string>
+    <string name="sim_input_lease">월 리스료</string>
+    <string name="sim_input_rent">월 렌트료</string>
+    <string name="sim_input_buy">차량 가격</string>
+    <string name="sim_car_monthly">· 연 %1$s</string>
+    <string name="sim_car_buy">· 해마다 %1$s 상각</string>
+    <string name="sim_other_short">그 밖의 비용</string>
+    <string name="sim_total">올해 관련비용 %1$s, 그중 감가상각비%2$s %3$s</string>
+    <string name="sim_equiv">" 상당액"</string>
+    <string name="sim_saved">기록 덕분에 세금 약 %1$s 줄어요</string>
+    <string name="sim_split">법인세 %1$s + 차량 사용자 소득세 %2$s</string>
+    <string name="sim_under_limit">관련비용이 %1$s 이하라 기록 없이도 전부 인정돼요</string>
+    <string name="sim_example_ratio">예시 비율 %1$s로 계산했어요</string>
+    <string name="sim_no_log_better">지금 업무사용비율로는 기록 없이 받는 한도가 더 유리해요</string>
+    <string name="sim_col_no_log">기록 없음</string>
+    <string name="sim_col_with_log">차곡</string>
+    <string name="sim_row_ratio">업무사용비율</string>
+    <string name="sim_row_deducted">올해 비용 인정</string>
+    <string name="sim_row_carry">다음 해로 이월</string>
+    <string name="sim_row_bonus">사용자 상여 처리</string>
+    <string name="sim_terms">용어 설명</string>
+    <string name="sim_note">이월: 업무용 감가상각비가 연 %1$s을 넘는 부분. 다음 해부터 한도가 남을 때 비용이 돼요.\n상여 처리: 인정 안 된 비용은 차량 사용자(모르면 대표)의 근로소득이 되어 소득세가 붙어요.</string>
+    <string name="sim_disclaimer">참고용 계산입니다. 업무전용자동차보험 가입·12개월 보유, 법인세 11%·사용자 소득세 38.5%(지방소득세 포함)를 가정했어요. 실제 신고는 세무사와 확인하세요.</string>
+
+    <!-- 설정 -->
+    <string name="settings_this_car">이 차</string>
+    <string name="settings_recording_title">기록 방식</string>
+    <string name="settings_default_label">기본 분류</string>
+    <string name="settings_usage_label">누가 쓰는 차</string>
+    <string name="settings_usage_solo">혼자</string>
+    <string name="settings_usage_shared">여러 명</string>
+    <string name="settings_usage_chauffeur">기사 운전</string>
+    <string name="settings_vehicle_title">차량 · 사업자</string>
+    <string name="settings_vin">차대번호</string>
+    <string name="settings_model">차종</string>
+    <string name="settings_plate">자동차등록번호</string>
+    <string name="settings_company">법인명</string>
+    <string name="settings_biz_no">사업자등록번호</string>
+    <string name="settings_fiscal_year">사업연도</string>
+    <string name="settings_users_title">사용자</string>
+    <string name="settings_default_user">기본</string>
+    <string name="settings_people_full">%1$d명까지 넣을 수 있어요. 안 쓰는 사람을 지우면 더할 수 있어요</string>
+    <string name="settings_people_unnamed_sub">이름을 넣어야 기록부에 나가요</string>
+    <string name="settings_people_hidden_sub">숨김. 지난 기록에만 남아요</string>
+    <string name="settings_people_move_up">%1$s 위로</string>
+    <string name="settings_places_title">장소</string>
+    <string name="settings_places_none">정하지 않음</string>
+    <string name="settings_places_sync_desc">내비 즐겨찾기의 집·회사로</string>
+    <string name="settings_places_sync">맞추기</string>
+    <string name="settings_places_synced">집·회사를 내비 즐겨찾기로 맞췄어요</string>
+    <string name="settings_places_need_both">집과 회사가 둘 다 있어야 해요. 없는 쪽을 내비 즐겨찾기에 넣거나 \'지금 여기\'로 정해 주세요</string>
+    <string name="settings_place_here_desc">지금 서 있는 곳을</string>
+    <string name="settings_place_home_here">집으로</string>
+    <string name="settings_place_office_here">회사로</string>
+    <string name="settings_place_home_here_done">지금 서 있는 곳을 집으로 정했어요</string>
+    <string name="settings_place_office_here_done">지금 서 있는 곳을 회사로 정했어요</string>
+    <string name="settings_notice_title">안내</string>
+    <string name="settings_gleo_title">Gleo로 말하기</string>
+
+    <!-- Gleo 말하기 예시 (첫 실행 "말로 고치기" · 설정 "Gleo로 말하기"). 에뮬레이터에서 실제로 알아들은 문장만.
+         앞에 "차곡에"를 붙인다. 없으면 Gleo 를 막 켠 첫 마디가 리마인더·잡담으로 빠진다.
+         Gleo 는 운행·주행 둘 다 알아듣지만 앱 화면 말에 맞춰 "운행"으로 통일한다 (서식 칸 ⑤⑥⑦⑪·기록 안 된 주행은 주행 그대로) -->
+    <string name="gleo_example_personal">“차곡에 이번 운행 개인 용무로 기록해줘”</string>
+    <string name="gleo_example_personal_result">이번 운행이 개인으로 바뀌어요. 위치는 남기지 않아요</string>
+    <string name="gleo_example_commute">“차곡에 이번 운행 출퇴근으로 기록해줘”</string>
+    <string name="gleo_example_commute_result">출퇴근으로 바뀌어요</string>
+    <string name="gleo_example_note">“차곡에 이번 운행 메모로 고객사 미팅이라고 적어줘”</string>
+    <string name="gleo_example_note_result">주차한 뒤 방금 운행 비고에 남아요</string>
+    <string name="gleo_example_user">“차곡에 이번 운행 사용자를 (이름)으로 기록해줘”</string>
+    <string name="gleo_example_user_result">누가 탔는지 채워져요</string>
+    <string name="gleo_example_tip">앞에 \'차곡에\'를 붙여 말하면 잘 알아들어요. 주차한 뒤 \'이번 운행\'이라고 하면 방금 운행인지 다음 운행인지 되물어요</string>
+    <string name="settings_voice_label">음성 안내 (시동·출퇴근·도착)</string>
+    <string name="settings_tutorial_title">사용법</string>
+    <string name="settings_tutorial_replay">튜토리얼 다시 보기</string>
+    <string name="settings_privacy_title">개인정보 · 기록 원칙</string>
+    <string name="settings_principle_personal">개인 운행은 위치를 남기지 않아요</string>
+    <string name="settings_principle_two_points">업무 운행은 출발지·도착지 두 곳만</string>
+    <string name="settings_principle_history">분류를 바꾼 이력이 남아요</string>
+    <string name="place_kind_home">집</string>
+    <string name="place_kind_office">회사</string>
+
+    <!-- 차량·사업자 시트 (서식 머리 값) -->
+    <string name="vehicle_hint_company">예: (주)○○상사 · 개인사업자는 상호</string>
+    <string name="vehicle_hint_biz_no">숫자만 넣어요</string>
+    <string name="vehicle_hint_model">예: 그랜저</string>
+    <string name="vehicle_hint_plate">예: 123가 4567</string>
+    <string name="vehicle_biz_no_error">숫자 %1$d자리를 모두 넣어 주세요</string>
+    <string name="vehicle_save">저장</string>
+
+    <!-- 사람 이름 · 사람 시트 (서식 ④사용자) -->
+    <string name="person_unnamed">이름 없음 %1$s</string>
+    <string name="person_name_needed">이름 입력 필요</string>
+    <string name="person_add">사람 추가</string>
+    <string name="person_edit">사람 고치기</string>
+    <string name="person_name_label">이름</string>
+    <string name="person_name_hint">예: 홍길동</string>
+    <string name="person_name_blank">이름을 비워 두면 기록부에 \'이름 입력 필요\'로 나가요</string>
+    <string name="person_dept_label">부서</string>
+    <string name="person_dept_hint">예: 영업팀</string>
+    <string name="person_save">저장</string>
+    <string name="person_remove">지우기</string>
+    <string name="person_remove_last">한 명은 남아 있어야 해서 지울 수 없어요</string>
+    <string name="person_remove_confirm">%1$s 님을 지울까요? 되돌릴 수 없어요</string>
+    <string name="person_hide_confirm">%1$s 님은 지난 운행에 나와서 지우지 않고 숨겨요. 기록부에는 이름이 그대로 남고, \'누가 타나요\'에서만 빠져요</string>
+    <string name="person_remove_do">지우기</string>
+    <string name="person_hide_do">숨기기</string>
+    <string name="person_remove_cancel">그대로 두기</string>
+    <string name="person_hidden_note">숨긴 사람이에요. 다시 쓰면 \'누가 타나요\'에 돌아와요</string>
+    <string name="person_unhide">다시 쓰기</string>
+
+    <!-- 관리자 PIN · 복구키 -->
+    <string name="admin_title">관리자</string>
+    <string name="admin_unlock_title">관리자 PIN</string>
+    <string name="admin_unlock_button">PIN 넣고 열기</string>
+    <string name="admin_unlock_sub">지난 기록·내보내기·기록 방식은 차량 관리 담당자만 열어요</string>
+    <string name="admin_wrong">PIN이 달라요 (%1$d번 남음)</string>
+    <string name="admin_blocked">PIN을 %1$d번 틀렸어요. 복구키로 새 PIN을 정해 주세요</string>
+    <string name="admin_forgot">PIN을 잊었어요</string>
+    <string name="admin_recover_title">복구키 %1$d자리</string>
+    <string name="admin_recover_sub">PIN을 정할 때 받은 숫자예요. 맞으면 새 PIN을 정해요 (복구키는 그대로)</string>
+    <string name="admin_recover_wrong">복구키가 달라요. 틀린 자리를 지우고 고쳐 주세요</string>
+    <string name="admin_recover_submit">확인</string>
+    <string name="admin_back_to_pin">PIN으로 돌아가기</string>
+    <string name="admin_new_title">새 PIN %1$d자리</string>
+    <string name="admin_setup_sub">이 차를 관리할 분만 아는 숫자로 정해 주세요</string>
+    <string name="admin_change_sub">복구키는 그대로예요</string>
+    <string name="admin_handover_sub">새 담당자가 직접 눌러요. 지금 PIN과 복구키는 더 쓸 수 없어요</string>
+    <string name="admin_confirm_title">한 번 더 눌러 주세요</string>
+    <string name="admin_mismatch">두 번 누른 PIN이 달라요. 처음부터 다시 눌러 주세요</string>
+    <string name="admin_key_title">복구키를 적어 두세요</string>
+    <string name="admin_key_sub">PIN을 잊었을 때 이 숫자로만 다시 정할 수 있어요. 지금 한 번만 보여 드려요. \'적어 뒀어요\'를 눌러야 새 PIN이 저장돼요</string>
+    <string name="admin_key_warn">PIN과 복구키를 모두 잃으면 관리자 권한을 되찾을 수 없어요. 기록은 그대로 남아요</string>
+    <string name="admin_key_done">적어 뒀어요</string>
+    <string name="admin_delete">지우기</string>
+    <string name="admin_pin_progress">PIN %1$d자리 중 %2$d자리 입력</string>
+    <string name="admin_locked_table">지난 기록은 관리자만 볼 수 있어요</string>
+    <string name="admin_locked_setting">관리자만 바꿀 수 있어요</string>
+    <string name="admin_setup">PIN 정하기</string>
+    <string name="admin_unlocked_desc">출발하면 저절로 잠겨요</string>
+    <string name="admin_lock">잠그기</string>
+    <string name="admin_change">PIN 바꾸기</string>
+    <string name="admin_handover">관리자 넘기기</string>
+    <string name="admin_log_title">관리자 수정 기록</string>
+    <string name="admin_log_empty">아직 고친 기록이 없어요</string>
+    <string name="admin_log_row">%1$s 운행 · %2$s %3$s → %4$s</string>
+    <string name="admin_log_field_category">분류</string>
+    <string name="admin_log_field_person">사용자</string>
+
+    <!-- 첫 실행 튜토리얼 -->
+    <string name="onboarding_bar_start">시작</string>
+    <string name="onboarding_bar_car">차</string>
+    <string name="onboarding_bar_mode">기록 방식</string>
+    <string name="onboarding_bar_places">장소</string>
+    <string name="onboarding_bar_learn">알아보기</string>
+    <string name="onboarding_bar_done">완료</string>
+    <string name="onboarding_welcome_title">운행은 차곡이 쌓고,\n사람은 업무에만 집중하세요</string>
+    <string name="onboarding_welcome_start">시작하기</string>
+    <string name="onboarding_skip">건너뛰기</string>
+    <string name="onboarding_skip_title">튜토리얼을 건너뛸까요?</string>
+    <string name="onboarding_skip_body">기록은 이미 시작됐어요. 기본값(업무·혼자 쓰는 차)으로 기록하고, 남은 건 홈의 시작 가이드에서 이어서 할 수 있어요.</string>
+    <string name="onboarding_skip_continue">계속하기</string>
+    <string name="onboarding_quote">“%1$s”</string>
+    <string name="onboarding_how_title">이렇게 기록돼요</string>
+    <string name="onboarding_how_sub">따로 누를 건 없어요. 다를 때만 바꾸면 돼요</string>
+    <string name="onboarding_how_ignition">시동을 걸면</string>
+    <string name="onboarding_how_driving">달리는 동안</string>
+    <string name="onboarding_how_parked">주차하면</string>
+    <string name="onboarding_how_recording">기록은 이미 시작됐어요</string>
+    <string name="onboarding_how_commute_note">내비로 집 ↔ 회사를 찍으면 \'출퇴근으로 기록됩니다\'라고 알려 주고 화면도 출퇴근이 돼요</string>
+    <string name="onboarding_how_card_note">이때 \'방금 운행\' 카드가 떠요. 다르면 1탭이나 말로 바꿔요</string>
+    <!-- 견본 운행의 도착지. 도착 안내 문장과 카드 제목에 같이 들어간다 -->
+    <string name="onboarding_how_sample_place">판교역</string>
+    <string name="onboarding_how_card_personal">개인 사용</string>
+    <string name="onboarding_how_card_sub_business">8.8 km · 업무</string>
+    <string name="onboarding_how_card_sub_personal">8.8 km · 개인</string>
+    <string name="onboarding_how_listen">들어 보기</string>
+    <string name="onboarding_how_play">처음부터 보기</string>
+    <!-- "이렇게 기록돼요" 장면 이름표 (위 막대). 좁은 창에서도 한 줄에 넷이 들어가게 짧게 -->
+    <string name="onboarding_how_tab">%1$d %2$s</string>
+    <string name="onboarding_how_tab_ignition">시동</string>
+    <string name="onboarding_how_tab_driving">주행</string>
+    <string name="onboarding_how_tab_change">말로 바꾸기</string>
+    <string name="onboarding_how_tab_parked">주차</string>
+    <string name="onboarding_how_ignition_note">시동만 걸면 기록이 시작되고, 어떻게 기록되는지 한 문장으로 알려 줘요</string>
+    <string name="onboarding_how_change">다르면 말로 바꿔요</string>
+    <string name="onboarding_how_change_note">운전대 음성 버튼을 누르고 Gleo에게 말하면 이번 운행이 바로 바뀌어요. 다음 단계에서 직접 해 봐요</string>
+    <string name="onboarding_try_title">Gleo에게 말해 보세요</string>
+    <string name="onboarding_try_sub">운전 중에도 화면을 누르지 않고 바꿀 수 있어요</string>
+    <string name="onboarding_try_tap_title">다를 때만 1탭으로 바꿔요</string>
+    <string name="onboarding_try_tap_sub">기본값과 다른 용무로 나갈 땐 출발 전에 이걸 눌러 주세요</string>
+    <string name="onboarding_try_later">나중에 해 볼게요</string>
+    <string name="onboarding_done_try_gleo">Gleo로 말해 보기</string>
+    <string name="onboarding_done_try_tap">1탭으로 바꿔 보기</string>
+    <string name="onboarding_done_tried">해 봤어요</string>
+    <string name="onboarding_done_try_later">나중에 (홈 시작 가이드)</string>
+
+    <!-- 말해 보기 연습 (첫 실행 · 홈 시작 가이드 시트). 문장은 에뮬레이터에서 Gleo 가 실제로 알아들은 것 -->
+    <string name="try_how_call">운전대 음성 버튼을 누르고 이렇게 말해 보세요</string>
+    <string name="try_phrase_personal">“차곡에 이번 운행 개인 용무로 기록해줘”</string>
+    <string name="try_phrase_business">“차곡에 이번 운행 업무로 기록해줘”</string>
+    <string name="try_tap_guide">아래에서 %1$s 쪽을 눌러 보세요</string>
+    <string name="try_tap_text">이번 운행 하나만 바뀌어요. 다음 시동부터는 다시 기본값이에요. 주차한 뒤 \'방금 운행\' 카드에서도 바꿀 수 있어요</string>
+    <string name="try_done">잘 했어요! 이렇게 바뀌어요</string>
+    <string name="try_waiting_gleo">Gleo에게 말하기를 기다리는 중…</string>
+    <string name="try_waiting_tap">눌러 보기를 기다리는 중…</string>
+    <string name="try_more_count">이런 말도 돼요 · %1$d/%2$d</string>
+    <string name="try_revert_on_finish">연습이라 시작하기를 누르면 기본값으로 돌아가요</string>
+    <string name="try_revert_on_close">연습이라 닫으면 원래대로 돌아가요</string>
+    <string name="gleo_example_tip_short">앞에 \'차곡에\'를 붙여 말하면 잘 알아들어요</string>
+
+    <!-- 홈 시작 가이드 -->
+    <string name="guide_title">시작 가이드</string>
+    <string name="guide_close">시작 가이드 닫기</string>
+    <string name="guide_recording">기록 방식 정하기</string>
+    <string name="guide_recording_sub">시동마다 기본값으로 기록해요</string>
+    <string name="guide_pin">관리자 PIN 정하기</string>
+    <string name="guide_pin_sub">지난 기록·내보내기는 관리자만</string>
+    <string name="guide_pin_action">정하기</string>
+    <string name="guide_places">집·회사 정하기</string>
+    <string name="guide_places_sub">출퇴근을 나눠 적어요</string>
+    <string name="guide_places_action">설정 열기</string>
+    <string name="guide_gleo">Gleo로 말해 보기</string>
+    <string name="guide_gleo_sub">운전 중에 말로 운행을 바꿔 봐요</string>
+    <string name="guide_tap">1탭으로 바꿔 보기</string>
+    <string name="guide_tap_sub">출발 전 다음 출발 [개인]</string>
+    <string name="guide_try_action">해 보기</string>
+    <string name="guide_trip">첫 운행 마치기</string>
+    <string name="guide_trip_sub">시동 걸고 다녀오면 저절로 체크돼요</string>
+
+    <string name="onboarding_title">차곡 시작하기</string>
+    <string name="onboarding_prev">이전</string>
+    <string name="onboarding_next">다음</string>
+    <string name="onboarding_finish">시작하기</string>
+    <string name="onboarding_optional">(선택)</string>
+    <string name="onboarding_recommended">추천</string>
+    <string name="onboarding_who_title">이 차는 누가 쓰나요?</string>
+    <string name="onboarding_who_sub">운전한 사람이 아니라 차를 쓴 사람을 기록해요</string>
+    <string name="onboarding_usage_solo">나 혼자 써요</string>
+    <string name="onboarding_usage_shared">여러 명이 번갈아 써요</string>
+    <string name="onboarding_usage_chauffeur">기사님이 운전해요</string>
+    <string name="onboarding_people_title">이 차를 쓰는 사람을 알려 주세요</string>
+    <string name="onboarding_people_title_chauffeur">뒤에 타시는 분을 알려 주세요</string>
+    <string name="onboarding_people_sub">이름은 나중에 넣어도 돼요</string>
+    <string name="onboarding_me">나</string>
+    <string name="onboarding_listening">듣고 있어요</string>
+    <string name="onboarding_voice_add">이름 말하고 추가</string>
+    <string name="onboarding_plain_add">이름 없이 추가</string>
+    <string name="onboarding_admin_title">관리자 PIN을 정할까요?</string>
+    <string name="onboarding_admin_sub">차량 관리 담당자가 정해요</string>
+    <string name="onboarding_role_driver">운전자</string>
+    <string name="onboarding_role_driver_text">누가 타는지, 업무/개인, 오늘 운행 고치기</string>
+    <string name="onboarding_role_admin">관리자</string>
+    <string name="onboarding_role_admin_text">지난 기록 보기·고치기, 내보내기, 기록 방식, 관리자 넘기기</string>
+    <string name="onboarding_admin_set">PIN 정하기</string>
+    <string name="onboarding_admin_done">PIN을 정했어요</string>
+    <string name="onboarding_admin_redo">다시 정하기</string>
+    <string name="onboarding_admin_hint">안 정하면 누구나 지난 기록을 보고 고칠 수 있어요</string>
+    <string name="onboarding_mode_title">운행을 기본으로 어떻게 기록할까요?</string>
+    <string name="onboarding_mode_sub">시동마다 이 값으로 기록하고, 다른 운행만 바꿔요</string>
+    <string name="onboarding_mode_responsibility">기본값과 다른 운행은 직접 바꿔 주세요. 운행기록부는 사용자 책임으로 작성돼요</string>
+    <string name="onboarding_promise_business">업무 운행</string>
+    <string name="onboarding_promise_business_text">출발지·도착지 두 곳과 거리만 남겨요. 지나간 길은 저장하지 않아요</string>
+    <string name="onboarding_promise_personal">개인 운행</string>
+    <string name="onboarding_promise_personal_text">위치를 남기지 않아요. 날짜·시각·거리만 남겨요</string>
+    <string name="onboarding_places_title">집과 회사가 여기 맞나요?</string>
+    <string name="onboarding_places_sub">업무 운행 중 집 ↔ 회사를 출퇴근으로 나눠 적어요</string>
+    <string name="onboarding_place_ok">맞아요</string>
+    <string name="onboarding_place_here">지금 여기</string>
+    <string name="onboarding_place_skip">안 쓸래요</string>
+    <string name="onboarding_place_here_text">지금 서 있는 곳</string>
+    <string name="onboarding_place_here_failed">지금 위치를 읽지 못했어요. 잠시 뒤 \'지금 여기\'를 다시 누르거나 즐겨찾기를 써 주세요</string>
+    <string name="onboarding_place_here_failed_short">위치를 못 읽었어요</string>
+    <string name="onboarding_place_need_both">집과 회사 둘 다 있어야 출퇴근을 나눠요. 한 곳만 정하면 쓰지 않아요</string>
+    <string name="onboarding_place_here_one">\'지금 여기\'는 한 곳에만 쓸 수 있어요</string>
+    <string name="onboarding_place_skipped">안 써요</string>
+    <string name="onboarding_place_no_bookmark">내비 즐겨찾기에 없어요</string>
+    <string name="onboarding_done_place_skipped">안 씀</string>
+    <string name="onboarding_bookmark">내비 즐겨찾기</string>
+    <string name="onboarding_done_title">다 됐어요. 이제 시동만 걸면 기록돼요</string>
+    <string name="onboarding_done_title_skipped">나중에 해도 괜찮아요. 시동만 걸면 기록돼요</string>
+    <string name="onboarding_done_sub">설정에서 바꿀 수 있어요</string>
+    <string name="onboarding_done_usage">누가 써요</string>
+    <string name="onboarding_done_admin">관리자 PIN</string>
+    <string name="onboarding_done_mode">기본 분류</string>
+    <string name="onboarding_done_places">집·회사</string>
+    <string name="onboarding_done_admin_set">정함</string>
+    <string name="onboarding_done_admin_none">안 정함</string>
+    <string name="onboarding_done_usage_solo">나 혼자</string>
+    <string name="onboarding_done_usage_shared">여러 명 · %1$s</string>
+    <string name="onboarding_done_usage_chauffeur">기사 운전 · %1$s</string>
+</resources>

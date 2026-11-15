@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 기록 서비스 상시 알림 아이콘: 앱 아이콘 블록 탑의 한 색 실루엣 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="50"
+    android:viewportHeight="50">
+    <group
+        android:translateX="2"
+        android:translateY="2.5">
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:pathData="M4,32h38a4,4 0,0 1,4,4v5a4,4 0,0 1,-4,4h-38a4,4 0,0 1,-4,-4v-5a4,4 0,0 1,4,-4z" />
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:pathData="M6,16h32a4,4 0,0 1,4,4v5a4,4 0,0 1,-4,4h-32a4,4 0,0 1,-4,-4v-5a4,4 0,0 1,4,-4z" />
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:pathData="M13,0h22a4,4 0,0 1,4,4v5a4,4 0,0 1,-4,4h-22a4,4 0,0 1,-4,-4v-5a4,4 0,0 1,4,-4z" />
+    </group>
+</vector>

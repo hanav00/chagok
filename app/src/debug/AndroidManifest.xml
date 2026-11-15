@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 디버그 빌드에만: 시연 샘플 넣기, 저장 실패 흉내, 시동 안내 흉내.
+     DUMP 권한을 걸어 adb shell 에서만 보낼 수 있게 한다 (기기의 다른 앱이 DB 를 건드리지 못하게) -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <receiver
+            android:name=".demo.DemoSeedReceiver"
+            android:exported="true"
+            android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="kr.chagok.demo.SEED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".demo.DemoFailWritesReceiver"
+            android:exported="true"
+            android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="kr.chagok.demo.FAIL_WRITES" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".demo.DemoIgnitionReceiver"
+            android:exported="true"
+            android:permission="android.permission.DUMP">
+            <intent-filter>
+                <action android:name="kr.chagok.demo.IGNITION" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

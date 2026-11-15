@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 차곡 블록 탑: 출퇴근 블록 위에 업무 블록 둘. 앱 아이콘·앱 머리·알림이 같이 쓴다 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="46dp"
+    android:height="45dp"
+    android:viewportWidth="46"
+    android:viewportHeight="45">
+    <group>
+        <clip-path android:pathData="M4,32h38a4,4 0,0 1,4,4v5a4,4 0,0 1,-4,4h-38a4,4 0,0 1,-4,-4v-5a4,4 0,0 1,4,-4z" />
+        <path
+            android:fillColor="@color/launcher_block_commute"
+            android:pathData="M4,32h38a4,4 0,0 1,4,4v5a4,4 0,0 1,-4,4h-38a4,4 0,0 1,-4,-4v-5a4,4 0,0 1,4,-4z" />
+        <path
+            android:fillColor="#2E000000"
+            android:pathData="M0,42h46v3h-46z" />
+    </group>
+    <group>
+        <clip-path android:pathData="M6,16h32a4,4 0,0 1,4,4v5a4,4 0,0 1,-4,4h-32a4,4 0,0 1,-4,-4v-5a4,4 0,0 1,4,-4z" />
+        <path
+            android:fillColor="@color/launcher_block_business"
+            android:pathData="M6,16h32a4,4 0,0 1,4,4v5a4,4 0,0 1,-4,4h-32a4,4 0,0 1,-4,-4v-5a4,4 0,0 1,4,-4z" />
+        <path
+            android:fillColor="#29000000"
+            android:pathData="M2,26h40v3h-40z" />
+    </group>
+    <group>
+        <clip-path android:pathData="M13,0h22a4,4 0,0 1,4,4v5a4,4 0,0 1,-4,4h-22a4,4 0,0 1,-4,-4v-5a4,4 0,0 1,4,-4z" />
+        <path
+            android:fillColor="@color/launcher_block_business"
+            android:pathData="M13,0h22a4,4 0,0 1,4,4v5a4,4 0,0 1,-4,4h-22a4,4 0,0 1,-4,-4v-5a4,4 0,0 1,4,-4z" />
+        <path
+            android:fillColor="#29000000"
+            android:pathData="M9,10h30v3h-30z" />
+    </group>
+</vector>
